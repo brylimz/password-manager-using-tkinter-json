@@ -10,20 +10,21 @@ window.title("Password Manager")
 window.config(padx=20, pady=20, bg="white", highlightthickness=0)
 canvas = Canvas(width=200, height=200, bg="white")
 logo_img = PhotoImage(file="logo.png")
-canvas.create_image(100, 100, image=logo_img,  )
-canvas.grid(column=2, row=1)
+canvas.create_image(100, 100, image=logo_img,)
+canvas.grid(column=1, row=0)
 
-website_label = Label(text="Website", fg="black")
-website_label.grid(column=0, row=2)
-website_text = Text(height=1, width=35)
-website_text.grid(column=2, row=2)
+#labels
+website_label = Label(text="Website")
+website_label.grid(row=1, column=0)
 
+email_label = Label(text="Email/Username")
+email_label.grid(row=2, column=0)
 
-email_username = Label(text="Email/Username", fg="black")
-email_username.grid(column=0, row=3)
+password_label = Label(text="Password")
+password_label.grid(row=3, column=0)
 
-password = Label(text="Password", fg="black")
-password.grid(column=0, row=4)
+#entries
+
 
 
 window.mainloop()
