@@ -31,6 +31,7 @@ def generate_password():
     pyperclip.copy(password)
 
 
+
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
 
@@ -67,6 +68,16 @@ def save():
             website_entry.delete(0, END)
             password_entry.delete(0, END)
 
+# ---------------------------- SAVE PASSWORD ------------------------------- #
+
+
+def find_password():
+    website = website_entry.get()
+    with open("data.json") as data_file:
+        data = json.load(data_file)
+        if website in data:
+            email = data[website]["email"]
+            password = data[website]["password"]
 
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
@@ -107,5 +118,8 @@ generate_password_button.grid(column=2, row=3)
 add_button = Button(text="Add", width=30)
 add_button.grid(row=4, column=1)
 add_button.config(command=save)
+
+search_button = Button(text="Search", command=find_password)
+search_button.grid(column=2, row=1)
 
 window.mainloop()
